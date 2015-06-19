@@ -14,9 +14,9 @@ Features
 This extension provides an easy way to include fields of subforms into a main form. So it is easy to use some parts of 
 a form again or structure huge forms with many field much better.
  
-This extension provides full support for the [multipage extension][terminal42.mp_forms], 
-[conditionalformfield extension][terminal42.conditionalformfields] 
-and [leads extension][[terminal42.leads]] provided by [terminal42][terminal42].
+This extension provides full support for the [multipage forms][terminal42.mp_forms], 
+[conditionalformfield][terminal42.conditionalformfields] 
+and [leads extension][terminal42.leads] provided by [terminal42][terminal42].
 
 **Important:** Support of the [efg][efg] is not tested and won't be offically supported.
    
