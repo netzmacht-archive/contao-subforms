@@ -21,13 +21,12 @@ class FormField
     /**
      * Prepare the palette.
      *
-     * @param \DataContainer $dataContainer The data container.
-     *
      * @return void
+     * @SuppressWarnings(PHPMD.Superglobals)
      */
-    public function preparePalette($dataContainer)
+    public function preparePalette()
     {
-        global $objLeadForm;
+        $leadForm = $GLOBALS['objLeadForm'];
 
         $GLOBALS['TL_DCA']['tl_form_field']['palettes']['subform'] = str_replace(
             ',leadStore',
@@ -35,12 +34,12 @@ class FormField
             $GLOBALS['TL_DCA']['tl_form_field']['palettes']['subform']
         );
 
-        if (!$this->isLeadsExtensionActive() || !$objLeadForm || !$objLeadForm->leadEnabled) {
+        if (!$this->isLeadsExtensionActive() || !$leadForm || !$leadForm->leadEnabled) {
             unset($GLOBALS['TL_DCA']['tl_form_field']['fields']['subformLeadStore']);
-        } elseif ($objLeadForm && $objLeadForm->leadEnabled && $objLeadForm->leadMaster == 0) {
+        } elseif ($leadForm && $leadForm->leadEnabled && $leadForm->leadMaster == 0) {
             $dca = &$GLOBALS['TL_DCA']['tl_form_field']['fields']['subformLeadStore']['eval']['columnFields'];
 
-            $dca['leadStore']['options']                  = ['1'=> $GLOBALS['TL_LANG']['MSC']['yes']];
+            $dca['leadStore']['options']                  = ['1' => $GLOBALS['TL_LANG']['MSC']['yes']];
             $dca['leadStore']['eval']['blankOptionLabel'] = $GLOBALS['TL_LANG']['MSC']['no'];
 
             unset($dca['leadStore']['options_callback']);

@@ -26,7 +26,7 @@ class FormObserver
      *
      * @return array
      */
-    public function hookCompileFormFields($fields, $formId, $form)
+    public function hookCompileFormFields($fields, $formId)
     {
         $combinedFields = array();
 

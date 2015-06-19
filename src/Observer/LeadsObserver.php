@@ -55,6 +55,8 @@ class LeadsObserver
      * @param array $form     The form config.
      * @param array $files    The uploaded files.
      * @param int   $leadId   The created lead.
+     *
+     * @return void
      */
     public function storeLeadsData($postData, $form, $files, $leadId)
     {
@@ -99,12 +101,14 @@ class LeadsObserver
     /**
      * Store the data of a sub form field.
      *
-     * @param int      $id        The field id.
+     * @param int      $fieldId   The field id.
      * @param int|bool $leadStore The lead store field or setting.
+     *
+     * @return void
      */
-    private function storeSubformFieldData($id, $leadStore)
+    private function storeSubformFieldData($fieldId, $leadStore)
     {
-        $field = \FormFieldModel::findByPK($id);
+        $field = \FormFieldModel::findByPK($fieldId);
         $data  = array();
 
         if ($this->hasLeadMaster()) {
@@ -154,9 +158,35 @@ class LeadsObserver
             );
         }
 
+        $this->insertIntoDatabase($field, $data);
+    }
+
+    /**
+     * Check if the form has a separate lead master.
+     *
+     * @return bool
+     */
+    private function hasLeadMaster()
+    {
+        return !empty($this->form['leadMaster']);
+    }
+
+    /**
+     * Insert the data into the database.
+     *
+     * @param \FormFieldModel $field The related form field.
+     * @param array           $data  The data being stored.
+     *
+     * @return void
+     * @SuppressWarnings(PHPMD.Superglobals)
+     */
+    private function insertIntoDatabase($field, $data)
+    {
         if (!empty($data)) {
             // HOOK: add custom logic
-            if (isset($GLOBALS['TL_HOOKS']['modifyLeadsDataOnStore']) && is_array($GLOBALS['TL_HOOKS']['modifyLeadsDataOnStore'])) {
+            if (isset($GLOBALS['TL_HOOKS']['modifyLeadsDataOnStore'])
+                && is_array($GLOBALS['TL_HOOKS']['modifyLeadsDataOnStore'])
+            ) {
                 foreach ($GLOBALS['TL_HOOKS']['modifyLeadsDataOnStore'] as $callback) {
                     $object = \Controller::importStatic($callback[0]);
                     $object->$callback[1](
@@ -171,19 +201,9 @@ class LeadsObserver
             }
 
             \Database::getInstance()
-                ->prepare("INSERT INTO tl_lead_data %s")
+                ->prepare('INSERT INTO tl_lead_data %s')
                 ->set($data)
                 ->execute();
         }
-    }
-
-    /**
-     * Check if the form has a separate lead master.
-     *
-     * @return bool
-     */
-    private function hasLeadMaster()
-    {
-        return !empty($this->form['leadMaster']);
     }
 }
