@@ -20,7 +20,7 @@ $GLOBALS['TL_DCA']['tl_form_field']['config']['onload_callback'][] = [
 /*
  * Palettes
  */
-$GLOBALS['TL_DCA']['tl_form_field']['palettes']['subform'] = '{type_legend},type,name;{subform_legend},subform,subformLeadStore';
+$GLOBALS['TL_DCA']['tl_form_field']['palettes']['subform'] = '{type_legend},type;{subform_legend},subform,subformLeadStore';
 
 /*
  * Fields
