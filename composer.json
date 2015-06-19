@@ -1,45 +1,51 @@
 {
-    "name":"netzmacht/contao-subforms",
-    "description":"Contao extension for using sub forms.",
-    "keywords":["contao", "form", "form generator", "sub form"],
-    "type":"contao-module",
-    "license":"LGPL-3.0+",
-    "authors":[
-        {
-            "name":"David Molineus",
-            "email":"mail@netzmacht.de",
-            "homepage":"http://www.netzmacht.de",
-            "role":"Project leader"
-        }
-    ],
-    "support":{
-        "email":"mail@netzmacht.de",
-        "issues":"https://github.com/netzmacht/contao-subforms/issues",
-        "source":"https://github.com/netzmacht/contao-subforms"
-    },
-    "require":{
-        "php":">=5.4",
-        "contao/core":">=3.2,<3.6-dev",
-        "contao-community-alliance/composer-plugin":"~2.0"
-    },
-    "require-dev":{
-        "netzmacht/contao-build-tools": "~1.1"
-    },
-    "autoload": {
-        "psr-4": {
-            "Netzmacht\\Contao\\Subforms\\": "src/"
-        }
-    },
-    "prefer-stable": true,
-    "minimum-stability": "dev",
-    "extra":{
-        "branch-alias": {
-            "dev-master": "1.0.x-dev"
-        },
-        "contao": {
-            "sources":{
-                "module": "system/modules/subforms"
-            }
-        }
+  "name": "netzmacht/contao-subforms",
+  "description": "Contao extension for using sub forms.",
+  "keywords": [
+    "contao",
+    "form",
+    "form generator",
+    "sub form"
+  ],
+  "type": "contao-module",
+  "license": "LGPL-3.0+",
+  "authors": [
+    {
+      "name": "David Molineus",
+      "email": "mail@netzmacht.de",
+      "homepage": "http://www.netzmacht.de",
+      "role": "Project leader"
     }
+  ],
+  "support": {
+    "email": "mail@netzmacht.de",
+    "issues": "https://github.com/netzmacht/contao-subforms/issues",
+    "source": "https://github.com/netzmacht/contao-subforms"
+  },
+  "require": {
+    "php": ">=5.4",
+    "contao/core": ">=3.2,<3.6-dev",
+    "contao-community-alliance/composer-plugin": "~2.0",
+    "menatwork/contao-multicolumnwizard": "~3.2"
+  },
+  "require-dev": {
+    "netzmacht/contao-build-tools": "~1.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Netzmacht\\Contao\\Subforms\\": "src/"
+    }
+  },
+  "prefer-stable": true,
+  "minimum-stability": "dev",
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    },
+    "contao": {
+      "sources": {
+        "module": "system/modules/subforms"
+      }
+    }
+  }
 }
