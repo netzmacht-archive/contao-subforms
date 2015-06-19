@@ -20,13 +20,13 @@ $GLOBALS['TL_DCA']['tl_form_field']['config']['onload_callback'][] = [
 /*
  * Palettes
  */
-$GLOBALS['TL_DCA']['tl_form_field']['palettes']['subform'] = '{type_legend},type;{subform_legend},subform,subformLeadStore';
+$GLOBALS['TL_DCA']['tl_form_field']['palettes']['subform'] = '{type_legend},type,subform;{subform_legend},subformLeadStore';
 
 /*
  * Fields
  */
-
-$GLOBALS['TL_DCA']['tl_form_field']['fields']['type']['save_callback'][] = [
+$GLOBALS['TL_DCA']['tl_form_field']['fields']['type']['eval']['tl_class'] = 'w50';
+$GLOBALS['TL_DCA']['tl_form_field']['fields']['type']['save_callback'][]  = [
     'Netzmacht\Contao\Subforms\Dca\FormField',
     'storeType'
 ];
