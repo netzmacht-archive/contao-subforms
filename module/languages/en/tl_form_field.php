@@ -25,8 +25,6 @@ $GLOBALS['TL_LANG']['tl_form_field']['subform_legend'] = 'Subform configuration'
  */
 $GLOBALS['TL_LANG']['tl_form_field']['subform'][0]                   = 'Subform';
 $GLOBALS['TL_LANG']['tl_form_field']['subform'][1]                   = 'Please select a form to include its fields into the form.';
-$GLOBALS['TL_LANG']['tl_form_field']['subformPrefix'][0]             = 'Prefix fields';
-$GLOBALS['TL_LANG']['tl_form_field']['subformPrefix'][1]             = 'If enabled each field of the subform get prefixed with the defined fieldname.';
 $GLOBALS['TL_LANG']['tl_form_field']['subformLeadStore'][0]          = 'Lead store';
 $GLOBALS['TL_LANG']['tl_form_field']['subformLeadStore'][1]          = 'Please select form fields which should be included in the lead.';
 $GLOBALS['TL_LANG']['tl_form_field']['subformLeadStoreField'][0]     = 'Field';

@@ -20,7 +20,7 @@ $GLOBALS['TL_DCA']['tl_form_field']['config']['onload_callback'][] = [
 /*
  * Palettes
  */
-$GLOBALS['TL_DCA']['tl_form_field']['palettes']['subform'] = '{type_legend},type,name;{subform_legend},subform,subformPrefix,subformLeadStore';
+$GLOBALS['TL_DCA']['tl_form_field']['palettes']['subform'] = '{type_legend},type,name;{subform_legend},subform,subformLeadStore';
 
 /*
  * Fields
@@ -30,18 +30,6 @@ $GLOBALS['TL_DCA']['tl_form_field']['fields']['type']['save_callback'][] = [
     'Netzmacht\Contao\Subforms\Dca\FormField',
     'storeType'
 ];
-
-$GLOBALS['TL_DCA']['tl_form_field']['fields']['subformPrefix'] = array(
-    'label'            => &$GLOBALS['TL_LANG']['tl_form_field']['subformPrefix'],
-    'exclude'          => true,
-    'inputType'        => 'checkbox',
-    'filter'           => true,
-    'sorting'          => true,
-    'eval'             => array(
-        'tl_class'           => 'w50 m12',
-    ),
-    'sql'              => "char(1) NOT NULL default ''"
-);
 
 $GLOBALS['TL_DCA']['tl_form_field']['fields']['subform'] = array(
     'label'            => &$GLOBALS['TL_LANG']['tl_form_field']['subform'],
