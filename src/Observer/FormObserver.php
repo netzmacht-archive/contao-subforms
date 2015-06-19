@@ -51,8 +51,10 @@ class FormObserver
                 $subformFields = \FormFieldModel::findPublishedByPid($field->subform);
 
                 if ($subformFields && !in_array($field->subform, $formStack)) {
-                    $formStack[] = $field->subform;
-                    $this->prepareFields($subformFields, $combinedFields, $formStack);
+                    $newStack   = $formStack;
+                    $newStack[] = $field->subform;
+
+                    $this->prepareFields($subformFields, $combinedFields, $newStack);
                 }
 
                 continue;
