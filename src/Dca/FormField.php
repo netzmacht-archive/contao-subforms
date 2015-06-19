@@ -56,11 +56,18 @@ class FormField
     public function getSubformOptions($dataContainer)
     {
         $options    = array();
-        $collection = \FormModel::findAll(['id !=?'], $dataContainer->id, ['order' => 'title']);
 
-        if ($collection) {
-            foreach ($collection as $form) {
-                $options[$form->id] = sprintf('%s [%s]', $form->title, $form->id);
+        if ($dataContainer->activeRecord) {
+            $collection = \FormModel::findBy(
+                ['tl_form.id !=?'],
+                $dataContainer->activeRecord->pid,
+                ['order' => 'title']
+            );
+
+            if ($collection) {
+                foreach ($collection as $form) {
+                    $options[$form->id] = sprintf('%s [%s]', $form->title, $form->id);
+                }
             }
         }
 
