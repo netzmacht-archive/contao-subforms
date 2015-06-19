@@ -27,14 +27,23 @@ class SubformField extends \Widget
 
     /**
      * {@inheritdoc}
+     * @SuppressWarnings(PHPMD.Superglobals)
      */
     public function generate()
     {
         if (TL_MODE === 'BE') {
             $template = new \BackendTemplate('be_wildcard');
 
-            $template->wildcard = sprintf('### Subform %s ###', $this->name);
+            $subform = \FormModel::findByPk($this->subform);
+
+            $template->wildcard = sprintf('### %s ###', $GLOBALS['TL_LANG']['tl_form_field']['subform'][0]);
             $template->id       = $this->id;
+            $template->link     = $subform->title;
+            $template->href     = sprintf(
+                'contao/main.php?do=form&table=tl_form_field&id=%s&rt=%s',
+                $this->subform,
+                \RequestToken::get()
+            );
 
             return $template->parse();
         }
