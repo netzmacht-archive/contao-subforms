@@ -34,6 +34,22 @@ This extension can be installed using composer:
 $ php composer.phar require netzmacht/contao-subforms:~1.0
 ```
 
+Usage
+-----
+
+ 1. Create the subforms you want to use in the main form. Please be aware that the 
+    field names are **not prefixed**. So they have to be unique in all subforms together!
+ 
+ 2. Create the main form and a new form element: subform
+ 
+ 3. If you use conao-leads the settings of the subform are ignored.
+    You have to define them in the subform form element. 
+    Please be aware that if you use a master form which has to include all
+    form elements which are used in the subforms.
+    
+ 4. If you use the multi page form extension you should create the page breaks in the main form.
+    Otherwise it's not guaranteed if it works.
+
 [terminal42.mp_forms]: https://github.com/terminal42/contao-mp_forms
 [terminal42.leads]: https://github.com/terminal42/contao-leads
 [terminal42.conditionalformfields]: https://github.com/terminal42/contao-conditionalformfields
