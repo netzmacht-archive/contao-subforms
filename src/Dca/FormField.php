@@ -55,7 +55,7 @@ class FormField
      */
     public function getSubformOptions($dataContainer)
     {
-        $options    = array();
+        $options = array();
 
         if ($dataContainer->activeRecord) {
             $collection = \FormModel::findBy(
