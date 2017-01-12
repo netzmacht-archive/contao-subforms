@@ -189,7 +189,7 @@ class LeadsObserver
             ) {
                 foreach ($GLOBALS['TL_HOOKS']['modifyLeadsDataOnStore'] as $callback) {
                     $object = \Controller::importStatic($callback[0]);
-                    $object->$callback[1](
+                    $object->{$callback[1]}(
                         $this->postData,
                         $this->form,
                         $this->files,
